@@ -87,19 +87,19 @@ function generateUID() {
   );
 }
 
-export function _getUsers() {
+export function _getUsers(): Promise<User[]> {
   return new Promise((res, rej) => {
-    setTimeout(() => res({ ...users }), 1000);
+    setTimeout(() => res([...users]), 1000);
   });
 }
 
-export function _getQuestions() {
+export function _getQuestions(): Promise<Poll[]> {
   return new Promise((res, rej) => {
-    setTimeout(() => res({ ...questions }), 1000);
+    setTimeout(() => res([...questions]), 1000);
   });
 }
 
-export function _saveQuestion(question: Poll) {
+export function _saveQuestion(question: Poll): Promise<Poll> {
   return new Promise((res, rej) => {
     setTimeout(() => {
       res(question);
@@ -107,7 +107,7 @@ export function _saveQuestion(question: Poll) {
   });
 }
 
-export function _saveQuestionAnswer(vote: UserVote) {
+export function _saveQuestionAnswer(vote: UserVote): Promise<UserVote> {
   return new Promise((res, rej) => {
     setTimeout(() => {
       res(vote);

@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/user-context";
 
-export const Nav = () => {
+interface NavProps {
+  onLogout: () => void;
+}
+
+export const Nav = ({ onLogout }: NavProps) => {
   const { user } = useContext(UserContext);
   return (
     <header>
@@ -18,10 +22,12 @@ export const Nav = () => {
         </Link>
         {user ? (
           <>
-            <span className="item">Hello Logged in user</span>
-            <Link className="item" to="/signin">
+            <span className="item">
+              <img src={user.avatar} /> Hello {user.name}
+            </span>
+            <button className="item" onClick={onLogout}>
               Logout
-            </Link>
+            </button>
           </>
         ) : (
           <Link className="item" to="/login">
