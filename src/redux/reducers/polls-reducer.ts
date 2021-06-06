@@ -7,22 +7,24 @@ import {
 
 export const pollsReducer = (state: Poll[] = [], action: PollAction) => {
   switch (action.type) {
+    case PollsActionsTypes.LOAD_QUESTIONS:
+      return [...(action.payload as Poll[])];
+
     case PollsActionsTypes.ADD_QUESTION:
       return [...state, action.payload as Poll];
 
-    case PollsActionsTypes.VOTE_FOR_OPTION_A:
-    case PollsActionsTypes.VOTE_FOR_OPTION_B:
+    case PollsActionsTypes.VOTE:
       const vote: UserVote = action.payload as UserVote;
       const newState: Poll[] = state.map<Poll>((p: Poll, _) => {
         if (p.id === vote.poll) {
           return {
             ...p,
             optionAVoters:
-              action.type === PollsActionsTypes.VOTE_FOR_OPTION_A
+              vote.answer === "A"
                 ? [...p.optionAVoters, vote.user]
                 : [...p.optionAVoters],
             optionBVoters:
-              action.type === PollsActionsTypes.VOTE_FOR_OPTION_B
+              vote.answer === "B"
                 ? [...p.optionBVoters, vote.user]
                 : [...p.optionBVoters],
           };
