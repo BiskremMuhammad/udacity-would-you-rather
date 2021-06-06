@@ -1,6 +1,8 @@
+import { User } from "./user";
+
 export interface Poll {
   id: string;
-  author: string;
+  author: User;
   optionA: string;
   optionB: string;
   createdAt: Date;

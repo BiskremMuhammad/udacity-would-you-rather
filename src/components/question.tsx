@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../context/user-context";
 import { Poll } from "../types/poll";
 
 export const Question = (poll: Poll) => {
-  const { user } = useContext(UserContext);
-
   return (
     <div className="question">
-      <div className="header">Someone Says:</div>
+      <div className="header">{`${poll.author.name} Says:`}</div>
       <div className="body">
         <div className="avatar">
-          <img src={user!.avatar} />
+          <img src={poll.author!.avatar} />
         </div>
         <div className="details">
           <h3>Would you rather</h3>

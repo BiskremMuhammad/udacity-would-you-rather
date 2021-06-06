@@ -26,7 +26,7 @@ const users: User[] = [
 const questions: Poll[] = [
   {
     id: "8xf0y6ziyjabvozdd253nd",
-    author: "chrisevans",
+    author: users.find((u) => u.id === "chrisevans") as User,
     createdAt: new Date(1467166872634),
     optionA: "have horrible short term memory",
     optionAVoters: ["chrisevans"],
@@ -35,7 +35,7 @@ const questions: Poll[] = [
   },
   {
     id: "6ni6ok3ym7mf1p33lnez",
-    author: "rere",
+    author: users.find((u) => u.id === "rere") as User,
     createdAt: new Date(1468479767190),
     optionA: "become a superhero",
     optionAVoters: [],
@@ -44,7 +44,7 @@ const questions: Poll[] = [
   },
   {
     id: "am8ehyc8byjqgar0jgpub9",
-    author: "chrisevans",
+    author: users.find((u) => u.id === "chrisevans") as User,
     createdAt: new Date(1488579767190),
     optionA: "be telekinetic",
     optionAVoters: [],
@@ -53,7 +53,7 @@ const questions: Poll[] = [
   },
   {
     id: "loxhs1bqm25b708cmbf3g",
-    author: "robert",
+    author: users.find((u) => u.id === "robert") as User,
     createdAt: new Date(1482579767190),
     optionA: "be a front-end developer",
     optionAVoters: [],
@@ -62,7 +62,7 @@ const questions: Poll[] = [
   },
   {
     id: "vthrdm985a262al8qx3do",
-    author: "robert",
+    author: users.find((u) => u.id === "robert") as User,
     createdAt: new Date(1489579767190),
     optionA: "find $50 yourself",
     optionAVoters: ["robert"],
@@ -71,7 +71,7 @@ const questions: Poll[] = [
   },
   {
     id: "xj352vofupe1dqz9emx13r",
-    author: "rere",
+    author: users.find((u) => u.id === "rere") as User,
     createdAt: new Date(1493579767190),
     optionA: "write JavaScript",
     optionAVoters: ["rere"],
@@ -79,13 +79,6 @@ const questions: Poll[] = [
     optionBVoters: ["robert"],
   },
 ];
-
-function generateUID() {
-  return (
-    Math.random().toString(36).substring(2, 15) +
-    Math.random().toString(36).substring(2, 15)
-  );
-}
 
 export function _getUsers(): Promise<User[]> {
   return new Promise((res, rej) => {
