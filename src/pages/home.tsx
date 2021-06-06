@@ -45,7 +45,7 @@ export const Home = () => {
                 (a: Poll, b: Poll) =>
                   b.createdAt.getTime() - a.createdAt.getTime()
               )
-              .map((p: Poll, _) => <Question key={p.id} {...p} />)
+              .map((p: Poll, _) => <Question key={p.id} poll={p} />)
           : polls
               .filter(
                 (p: Poll, _) =>
@@ -56,7 +56,7 @@ export const Home = () => {
                 (a: Poll, b: Poll) =>
                   b.createdAt.getTime() - a.createdAt.getTime()
               )
-              .map((p: Poll, _) => <Question key={p.id} {...p} />)}
+              .map((p: Poll, _) => <Question key={p.id} poll={p} />)}
       </div>
     </div>
   );

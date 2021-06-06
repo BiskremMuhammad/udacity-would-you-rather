@@ -23,7 +23,7 @@ const users: User[] = [
   },
 ];
 
-const questions: Poll[] = [
+let questions: Poll[] = [
   {
     id: "8xf0y6ziyjabvozdd253nd",
     author: users.find((u) => u.id === "chrisevans") as User,
@@ -102,10 +102,27 @@ export function _saveQuestion(question: Poll): Promise<Poll> {
   });
 }
 
-export function _saveQuestionAnswer(vote: UserVote): Promise<UserVote> {
+export function _saveQuestionAnswer(vote: UserVote): Promise<Poll> {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      res(vote);
+      const updatedQuestions: Poll[] = questions.map((q: Poll, _) => {
+        if (q.id === vote.poll) {
+          return {
+            ...q,
+            optionAVoters:
+              vote.answer === "A"
+                ? q.optionAVoters.concat(vote.user)
+                : q.optionAVoters,
+            optionBVoters:
+              vote.answer === "B"
+                ? q.optionBVoters.concat(vote.user)
+                : q.optionBVoters,
+          };
+        }
+        return q;
+      });
+      questions = updatedQuestions;
+      res(questions.find((q: Poll, _) => q.id === vote.poll) as Poll);
     }, 500);
   });
 }

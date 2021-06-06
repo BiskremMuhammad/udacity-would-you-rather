@@ -14,24 +14,14 @@ export const pollsReducer = (state: Poll[] = [], action: PollAction) => {
       return [...state, action.payload as Poll];
 
     case PollsActionsTypes.VOTE:
-      const vote: UserVote = action.payload as UserVote;
-      const newState: Poll[] = state.map<Poll>((p: Poll, _) => {
-        if (p.id === vote.poll) {
-          return {
-            ...p,
-            optionAVoters:
-              vote.answer === "A"
-                ? [...p.optionAVoters, vote.user]
-                : [...p.optionAVoters],
-            optionBVoters:
-              vote.answer === "B"
-                ? [...p.optionBVoters, vote.user]
-                : [...p.optionBVoters],
-          };
+      const pollId: string = (action.payload as Poll).id;
+      const updatedPolls: Poll[] = state.map<Poll>((p: Poll, _) => {
+        if (p.id === pollId) {
+          return { ...(action.payload as Poll) };
         }
         return p;
       });
-      return newState;
+      return updatedPolls;
 
     default:
       return state;
