@@ -13,6 +13,7 @@ code {
 }
 :root {
   --primary: #4a47a3;
+  --gray: #d9d9d9;
   --text-primary: #fff;
   --default: #153e90;
   --white: #f1f1f1;
@@ -72,14 +73,35 @@ main {
 }
 /* panel */
 .panel {
-  border: 0.2rem var(--default) solid;
-  max-width: 400px;
-  border-radius: 4px;
-  max-height: 500px;
+  border: 0.18rem var(--gray) solid;
+  border-radius: 8px;
+  width: 95%;
+  max-width: 560px;
+}
+.panel-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.18rem var(--gray) solid;
+}
+.panel-tabs > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.3s;
+}
+.panel-tabs > div.active {
+  background-color: #e7e7e7;
+  color: var(--primary);
 }
 .panel-title {
   background: var(--white);
-  border-bottom: 0.2rem var(--default) solid;
+  border-bottom: 0.18rem var(--gray) solid;
   padding: 8px;
 }
 .panel-title h2,
@@ -91,7 +113,77 @@ main {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  margin: 32px 8px;
+  padding: 1rem;
+}
+.question {
+  border: 0.18rem var(--gray) solid;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.question:last-child {
+  margin-bottom: 0;
+}
+.question .header {
+  padding: 0.88rem 1rem;
+  background-color: #e7e7e7;
+  font-size: 1rem;
+  font-weight: bold;
+  border-bottom: 0.18rem var(--gray) solid;
+}
+.question .body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.66rem;
+}
+.question .body .avatar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.question .body .avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.question .body .details {
+  flex: 2;
+  align-self: stretch;
+  padding-left: 0.66rem;
+  border-left: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.question .body .details h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+.question .body .details p {
+  font-size: 0.75rem;
+  margin: 0;
+}
+.question .body .details a {
+  align-self: stretch;
+  text-align: center;
+  padding: 0.66rem;
+  border: 1px solid var(--primary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--primary);
+  background-color: transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.question .body .details a:hover {
+  border-color: var(--default);
 }
 /* input */
 input,
