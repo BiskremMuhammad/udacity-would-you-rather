@@ -8,7 +8,7 @@ export const Question = (poll: Poll) => {
       <div className="header">{`${poll.author.name} Says:`}</div>
       <div className="body">
         <div className="avatar">
-          <img src={poll.author!.avatar} />
+          <img src={poll.author!.avatar} alt={poll.author.name} />
         </div>
         <div className="details">
           <h3>Would you rather</h3>

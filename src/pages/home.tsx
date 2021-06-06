@@ -41,14 +41,14 @@ export const Home = () => {
                   !p.optionAVoters.includes(user!.id) &&
                   !p.optionBVoters.includes(user!.id)
               )
-              .map((p: Poll, _) => <Question {...p} />)
+              .map((p: Poll, _) => <Question key={p.id} {...p} />)
           : polls
               .filter(
                 (p: Poll, _) =>
                   p.optionAVoters.includes(user!.id) ||
                   p.optionBVoters.includes(user!.id)
               )
-              .map((p: Poll, _) => <Question {...p} />)}
+              .map((p: Poll, _) => <Question key={p.id} {...p} />)}
       </div>
     </div>
   );

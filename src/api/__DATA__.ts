@@ -95,7 +95,9 @@ export function _getQuestions(): Promise<Poll[]> {
 export function _saveQuestion(question: Poll): Promise<Poll> {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      res(question);
+      const q: Poll = { ...question, createdAt: new Date(Date.now()) };
+      questions.push(q);
+      res(q);
     }, 1000);
   });
 }

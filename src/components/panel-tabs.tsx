@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export enum QuestionTabs {
   ANSWERED_QUESTIONS = "Answered Questions",

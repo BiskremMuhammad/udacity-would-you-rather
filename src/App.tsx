@@ -10,6 +10,7 @@ import { Nav } from "./components/nav";
 import { _getUsers } from "./api/__DATA__";
 
 import "./App.css";
+import { AddQuestion } from "./pages/add-question";
 
 function App() {
   const [listOfUsers, setListOfUsers] = useState<User[]>([]);
@@ -54,6 +55,7 @@ function App() {
               )}
               {!state.user && <Redirect to="login" />}
               <Route exact path="/" component={Home} />
+              <Route exact path="/add" component={AddQuestion} />
             </Switch>
           </main>
         </BrowserRouter>

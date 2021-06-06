@@ -185,21 +185,44 @@ main {
 .question .body .details a:hover {
   border-color: var(--default);
 }
+.or-sep {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0.75rem 0;
+}
+.or-sep::before,
+.or-sep::after {
+  content: "";
+  flex: 1;
+  height: 0.1rem;
+  background-color: var(--gray);
+}
+.or-sep h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: black;
+  margin: 0 0.5rem;
+}
 /* input */
 input,
 select {
-  border: 0.2rem var(--default) solid;
+  border: 0.18rem var(--gray) solid;
 }
 input,
 select,
 button {
-  border-radius: 4px;
+  border-radius: 8px;
+  padding: 0 0.66rem;
   height: 40px;
 }
 button {
   margin-top: 8px;
   background: var(--primary);
   color: var(--text-primary);
+  border: 1px solid var(--primary);
+  cursor: pointer;
 }
 /* question icon */
 .react-redux-icon {

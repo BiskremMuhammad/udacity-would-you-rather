@@ -23,7 +23,7 @@ export const Nav = ({ onLogout }: NavProps) => {
         {user ? (
           <>
             <span className="item">
-              <img src={user.avatar} /> Hello {user.name}
+              <img src={user.avatar} alt={user.name} /> Hello {user.name}
             </span>
             <button className="item" onClick={onLogout}>
               Logout
