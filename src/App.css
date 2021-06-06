@@ -77,6 +77,8 @@ main {
   border-radius: 8px;
   width: 95%;
   max-width: 560px;
+  align-self: flex-start;
+  margin-bottom: 80px;
 }
 .panel-tabs {
   display: flex;

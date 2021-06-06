@@ -41,12 +41,20 @@ export const Home = () => {
                   !p.optionAVoters.includes(user!.id) &&
                   !p.optionBVoters.includes(user!.id)
               )
+              .sort(
+                (a: Poll, b: Poll) =>
+                  b.createdAt.getTime() - a.createdAt.getTime()
+              )
               .map((p: Poll, _) => <Question key={p.id} {...p} />)
           : polls
               .filter(
                 (p: Poll, _) =>
                   p.optionAVoters.includes(user!.id) ||
                   p.optionBVoters.includes(user!.id)
+              )
+              .sort(
+                (a: Poll, b: Poll) =>
+                  b.createdAt.getTime() - a.createdAt.getTime()
               )
               .map((p: Poll, _) => <Question key={p.id} {...p} />)}
       </div>
