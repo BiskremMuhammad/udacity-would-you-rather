@@ -11,7 +11,6 @@ interface QuestionProps {
 }
 
 export const Question = ({ poll, showDetails }: QuestionProps) => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useContext(UserContext);
   const [answer, setAnswer] = useState<string>("");

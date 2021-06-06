@@ -12,6 +12,7 @@ import { _getUsers } from "./api/__DATA__";
 import "./App.css";
 import { AddQuestion } from "./pages/add-question";
 import { PollDetails } from "./pages/poll-details";
+import { Leaderboard } from "./pages/leaderboard";
 
 function App() {
   const [listOfUsers, setListOfUsers] = useState<User[]>([]);
@@ -57,6 +58,11 @@ function App() {
               {!state.user && <Redirect to="login" />}
               <Route exact path="/" component={Home} />
               <Route exact path="/add" component={AddQuestion} />
+              <Route
+                exact
+                path="/leaderboard"
+                render={() => <Leaderboard users={listOfUsers} />}
+              />
               <Route path="/question/:id" component={PollDetails} />
             </Switch>
           </main>

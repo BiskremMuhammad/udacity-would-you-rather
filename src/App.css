@@ -60,6 +60,7 @@ header {
   height: 36px;
   margin-right: 12px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .nav .item:hover {
   background: var(--primary);
@@ -316,14 +317,94 @@ button {
 .w-md {
   min-width: 500px;
 }
-.leader-title {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 0.2rem var(--default) solid;
-  height: 40px;
-  text-align: center;
+.leaderboard {
+  display: flex;
+  flex-direction: column;
 }
-.leader-title > div:hover {
-  background: var(--primary);
-  color: var(--white);
+.user {
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin-bottom: 12px;
+}
+.user:last-child {
+  margin-bottom: 0;
+}
+.user .avatar img {
+  width: 120px;
+  height: 120px;
+  margin-left: 8px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.user .info {
+  flex: 1;
+  margin: 0 12px;
+  padding: 0 12px;
+  border-right: 1px solid var(--gray);
+  border-left: 1px solid var(--gray);
+  display: flex;
+  flex-direction: column;
+}
+.user .info h3 {
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+.user .info .metrics p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0.66rem 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.user .info .metrics p span:first-child {
+  flex: 1;
+}
+.user .info .metrics p:last-child {
+  border-bottom: none;
+}
+.user .score {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+  align-self: stretch;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.user .score .score-title {
+  height: 48px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.88rem;
+  background-color: #e7e7e7;
+}
+.user .score .score-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.user .score .score-value span {
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: var(--primary);
+  border-radius: 50%;
 }
