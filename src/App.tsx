@@ -13,6 +13,7 @@ import "./App.css";
 import { AddQuestion } from "./pages/add-question";
 import { PollDetails } from "./pages/poll-details";
 import { Leaderboard } from "./pages/leaderboard";
+import { NotFound } from "./pages/not-found";
 
 function App() {
   const [listOfUsers, setListOfUsers] = useState<User[]>([]);
@@ -71,6 +72,7 @@ function App() {
                 render={() => <Leaderboard users={listOfUsers} />}
               />
               <Route path="/question/:id" component={PollDetails} />
+              <Route path="/" component={NotFound} />
             </Switch>
           </main>
         </BrowserRouter>

@@ -73,6 +73,49 @@ main {
   justify-content: center;
   flex-direction: row;
 }
+
+.not-found {
+  flex: 1;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found h3 {
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: 0.75rem;
+  margin-right: 1.5rem;
+  padding-right: 1.5rem;
+  border-right: 1px solid #e7e7e7;
+}
+
+.not-found > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.not-found p {
+  font-size: 0.75rem;
+}
+
+.not-found p:first-child {
+  margin-bottom: 0;
+}
+
+.not-found a,
+.not-found a:visited {
+  text-decoration: none;
+  color: #007aaf;
+  transform: all 0.3s;
+}
+
+.not-found a:hover {
+  text-decoration: underline;
+}
 /* panel */
 .panel {
   border: 0.18rem var(--gray) solid;
