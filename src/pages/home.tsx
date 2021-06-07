@@ -1,32 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Dispatch } from "redux";
+import React, { useContext, useState } from "react";
+import { useSelector } from "react-redux";
 import { _getQuestions } from "../api/__DATA__";
 import { PanelTabs, QuestionTabs } from "../components/panel-tabs";
 import { Question } from "../components/question";
 import { UserContext } from "../context/user-context";
-import { PollAction, PollsActionsTypes } from "../redux/actions/polls-actions";
 import { Poll } from "../types/poll";
 
 export const Home = () => {
   const polls: Poll[] = useSelector<Poll[], Poll[]>((store) => store);
-  const dispatch = useDispatch<Dispatch<PollAction>>();
   const [activeTab, setActiveTab] = useState<QuestionTabs>(
     QuestionTabs.UNANSWERED_QUESTIONS
   );
   const { user } = useContext(UserContext);
-
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      const fetchedQuestions = await _getQuestions();
-      dispatch({
-        type: PollsActionsTypes.LOAD_QUESTIONS,
-        payload: fetchedQuestions,
-      });
-    };
-
-    fetchQuestions();
-  }, []);
 
   return !polls.length ? (
     <h3>Loading...</h3>
