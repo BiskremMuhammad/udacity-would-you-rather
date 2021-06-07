@@ -32,7 +32,7 @@ export const AddQuestion = () => {
   };
 
   const onSubmitQuestion = async () => {
-    if (!question.optionA.length || !question.optionB.length) {
+    if (!question.optionA.trim().length || !question.optionB.trim().length) {
       return;
     }
     await dispatch(saveQuestion(question));
