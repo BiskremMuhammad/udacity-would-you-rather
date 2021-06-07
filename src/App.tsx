@@ -17,6 +17,7 @@ import { Leaderboard } from "./pages/leaderboard";
 function App() {
   const [listOfUsers, setListOfUsers] = useState<User[]>([]);
   const [state, setState] = useState<Context>({ user: undefined });
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,13 +26,19 @@ function App() {
     };
 
     fetchUsers();
+    if (localStorage.getItem("user")) {
+      setState({ user: JSON.parse(localStorage.getItem("user")!) });
+    }
+    setLoading(false);
   }, []);
 
   const onLogin = (user: User) => {
+    localStorage.setItem("user", JSON.stringify(user));
     setState({ user });
   };
 
   const onLogout = () => {
+    localStorage.removeItem("user");
     setState({ user: undefined });
   };
 
@@ -55,7 +62,7 @@ function App() {
                   }
                 />
               )}
-              {!state.user && <Redirect to="login" />}
+              {!state.user && !loading && <Redirect to="login" />}
               <Route exact path="/" component={Home} />
               <Route exact path="/add" component={AddQuestion} />
               <Route
