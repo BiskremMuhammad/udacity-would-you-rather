@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../context/user-context";
 import { saveVote } from "../redux/thunky-actions";
 import { Poll } from "../types/poll";

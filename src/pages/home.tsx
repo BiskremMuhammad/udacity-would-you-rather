@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { useSelector } from "react-redux";
-import { _getQuestions } from "../api/__DATA__";
 import { PanelTabs, QuestionTabs } from "../components/panel-tabs";
 import { Question } from "../components/question";
 import { UserContext } from "../context/user-context";

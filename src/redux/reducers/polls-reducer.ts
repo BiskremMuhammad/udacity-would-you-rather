@@ -1,9 +1,5 @@
 import { Poll } from "../../types/poll";
-import {
-  PollAction,
-  PollsActionsTypes,
-  UserVote,
-} from "../actions/polls-actions";
+import { PollAction, PollsActionsTypes } from "../actions/polls-actions";
 
 export const pollsReducer = (state: Poll[] = [], action: PollAction) => {
   switch (action.type) {
