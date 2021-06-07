@@ -63,7 +63,7 @@ function App() {
                   }
                 />
               )}
-              {!state.user && !loading && <Redirect to="login" />}
+              {!state.user && !loading && <Redirect to="/login" />}
               <Route exact path="/" component={Home} />
               <Route exact path="/add" component={AddQuestion} />
               <Route
